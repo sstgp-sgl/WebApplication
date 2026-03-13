@@ -6,11 +6,10 @@ Human-Computer Interaction Course Project
 
 ```
 ApplicationWeb/
-├── docs/                 # GitHub Pages - Process Portfolio
-│   ├── index.html        # Portfolio main page
-│   ├── styles.css        # Portfolio styles
-│   ├── script.js         # Portfolio scripts
-│   └── assets/           # Portfolio images
+├── docs/                 # GitHub Pages - Process Portfolio (Astro Project)
+│   ├── src/              # Portfolio source code
+│   ├── public/           # Static assets
+│   └── astro.config.mjs  # Astro configuration
 │
 ├── src/                  # Main webapp source (to be created)
 ├── package.json          # Main project dependencies
@@ -25,14 +24,13 @@ This repository contains:
 
 ## 🚀 GitHub Pages Setup
 
-The portfolio is deployed from the `/docs` folder:
+The portfolio is built with Astro and deployed via GitHub Actions:
 
 1. Go to Repository Settings → Pages
-2. Source: Deploy from a branch
-3. Branch: `main` + `/docs` folder
-4. Save
+2. Source: **GitHub Actions** (was "Deploy from a branch")
+3. The `Deploy Astro site to Pages` workflow will automatically build and deploy.
 
-Your portfolio will be available at: `https://yourusername.github.io/ApplicationWeb/`
+**Live Portfolio**: [https://dcyaprogrammer.github.io/ApplicationWeb/](https://dcyaprogrammer.github.io/ApplicationWeb/)
 
 ## 📝 Portfolio Documentation
 
