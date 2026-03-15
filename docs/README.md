@@ -13,6 +13,7 @@ All the content pages are located in `src/pages/`. Here is the map:
 | **Process** | `src/pages/process.astro` | Information architecture, wireframes, user flows. |
 | **Prototypes** | `src/pages/prototypes.astro` | Low-fi and Hi-fi prototypes, interactive demos. |
 | **Testing** | `src/pages/testing.astro` | User testing sessions, feedback, and iterations. |
+| **Team** | `src/pages/team.astro` | Team member profiles and roles. |
 | **Reflection** | `src/pages/reflection.astro` | Final thoughts, what we learned, future steps. |
 
 ---
@@ -108,3 +109,80 @@ Before you push your changes to GitHub, you should check them locally.
 *   **Accent Color:** Use `text-brand-accent` (Blue) for highlights.
 *   **Borders:** Use `border border-neutral-800` (or `border-border-dark`) for subtle outlines.
 *   **Backgrounds:** Use `bg-neutral-900` (or `bg-bg-darker`) for card backgrounds.
+
+---
+
+## 👥 How to Edit Your Team Profile
+
+To update your team member information, edit the `src/pages/team.astro` file. Look for the `teamMembers` array near the top of the file.
+
+### Step 1: Find Your Profile
+
+Open `src/pages/team.astro` and find the `teamMembers` array (around line 8-43):
+
+```javascript
+const teamMembers = [
+    {
+        name: "Your Name",
+        role: "Your Role",
+        bio: "Your bio goes here...",
+        skills: ["Skill 1", "Skill 2", "Skill 3"],
+        github: "your-github-username",
+        linkedin: "your-linkedin-username",  // optional
+        email: "your.email@university.edu"
+    },
+    // ... other team members
+];
+```
+
+### Step 2: Update Your Information
+
+Replace the placeholder values with your real information:
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| `name` | Your full name | `"Alex Chen"` |
+| `role` | Your role in the team | `"Lead Designer & UX Researcher"` |
+| `bio` | Short description (2-3 sentences) | `"Passionate about creating intuitive user experiences..."` |
+| `skills` | Array of your skills | `["Figma", "User Research", "Prototyping"]` |
+| `github` | Your GitHub username | `"alexchen"` |
+| `linkedin` | Your LinkedIn username (optional) | `"alexchen"` |
+| `email` | Your university email | `"alex.chen@university.edu"` |
+
+### Step 3: Add Your Avatar (Optional)
+
+To add a profile picture:
+
+1. Place your photo in `public/` folder (e.g., `public/avatar-alex.jpg`)
+2. Add the `avatar` field to your profile:
+
+```javascript
+{
+    name: "Your Name",
+    avatar: "avatar-alex.jpg",  // ← Add this
+    role: "Your Role",
+    // ... rest of your info
+}
+```
+
+### Tips
+
+- **Keep bio concise**: 2-3 sentences is ideal
+- **List 4-6 skills**: Your most relevant technical and soft skills
+- **Social links are optional**: Only add what you're comfortable sharing publicly
+- **Test locally**: Run `bun run dev` to preview changes before committing
+
+### Example: Complete Profile
+
+```javascript
+{
+    name: "Sarah Kim",
+    role: "Frontend Developer",
+    bio: "Brings designs to life with clean, performant code. Responsible for the portfolio site and prototyping the main application. Loves learning new frameworks.",
+    skills: ["React", "TypeScript", "Astro", "Tailwind CSS", "Git"],
+    avatar: "avatar-sarah.jpg",
+    github: "sarahkim",
+    linkedin: "sarahkim",
+    email: "sarah.kim@university.edu"
+}
+```
