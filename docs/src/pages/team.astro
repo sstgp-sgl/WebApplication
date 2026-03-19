@@ -4,41 +4,31 @@ import PageHeader from '../components/PageHeader.astro';
 import Section from '../components/Section.astro';
 import TeamMember from '../components/TeamMember.astro';
 
-// Team member data - replace with real info
+// Team member data
 const teamMembers = [
 	{
-		name: "Alex Chen",
-		role: "Lead Designer & UX Researcher",
-		bio: "Passionate about creating intuitive user experiences. Led user research and persona development. Focused on ensuring our game mechanics align with learning objectives.",
-		skills: ["Figma", "User Research", "Prototyping", "Interaction Design"],
-		github: "alexchen",
-		email: "alex.chen@university.edu"
+		name: "Chengyang Du",
+		role: "Team Member",
+		bio: "Contributing to the design and development of Gradventure, focusing on creating an engaging experience for students preparing for study abroad applications.",
+		skills: ["Design", "Development", "Research"]
 	},
 	{
-		name: "Sarah Kim",
-		role: "Frontend Developer",
-		bio: "Brings designs to life with clean, performant code. Responsible for the portfolio site and prototyping the main application. Loves learning new frameworks.",
-		skills: ["React", "TypeScript", "Astro", "Tailwind CSS"],
-		github: "sarahkim",
-		linkedin: "sarahkim",
-		email: "sarah.kim@university.edu"
+		name: "Gulong Sun",
+		role: "Team Member",
+		bio: "Contributing to the design and development of Gradventure, focusing on creating an engaging experience for students preparing for study abroad applications.",
+		skills: ["Design", "Development", "Research"]
 	},
 	{
-		name: "Marcus Johnson",
-		role: "Backend Developer",
-		bio: "Architected the application backend and designed the database schema. Ensures our game state management and progress tracking work seamlessly.",
-		skills: ["Node.js", "PostgreSQL", "API Design", "Game Logic"],
-		github: "marcusj",
-		email: "marcus.j@university.edu"
+		name: "Yanhan Jin",
+		role: "Team Member",
+		bio: "Contributing to the design and development of Gradventure, focusing on creating an engaging experience for students preparing for study abroad applications.",
+		skills: ["Design", "Development", "Research"]
 	},
 	{
-		name: "Emma Rodriguez",
-		role: "Content Strategist & QA Lead",
-		bio: "Developed the study abroad curriculum and gamified learning paths. Conducted user testing sessions and coordinated iterative improvements based on feedback.",
-		skills: ["Content Design", "User Testing", "QA", "Education"],
-		github: "emmarodriguez",
-		linkedin: "emmarodriguez",
-		email: "emma.r@university.edu"
+		name: "Yixuan Zheng",
+		role: "Team Member",
+		bio: "Contributing to the design and development of Gradventure, focusing on creating an engaging experience for students preparing for study abroad applications.",
+		skills: ["Design", "Development", "Research"]
 	}
 ];
 ---
@@ -46,14 +36,14 @@ const teamMembers = [
 <Layout title="HCI Portfolio | Team">
 	<PageHeader
 		title="Meet The Team"
-		subtitle="The four designers and developers behind this game-based learning platform."
+		subtitle="The four designers and developers behind Gradventure."
 	/>
 
 	<Section title="Our Team">
 		<p class="text-neutral-400 max-w-3xl mb-12 leading-relaxed">
 			We are a group of four students with diverse backgrounds in design, development, and education.
-			Together, we're building an engaging platform to help students navigate the study abroad application
-			process through gamification.
+			Together, we're building <span class="text-white font-semibold">Gradventure</span> — an engaging platform
+			to help students navigate the study abroad application process through gamification.
 		</p>
 
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-dark border border-border-dark">

@@ -1,6 +1,12 @@
 # ApplicationWeb
 
+**Gradventure** - A gamified study abroad application preparation platform.
+
 Human-Computer Interaction Course Project
+
+## 🎯 About Gradventure
+
+Gradventure is an engaging web application that gamifies the study abroad preparation process for students. By combining educational content with game mechanics, we aim to make learning about international education accessible and fun.
 
 ## 📁 Project Structure
 

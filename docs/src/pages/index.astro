@@ -9,9 +9,9 @@ const normalizedBase = base.endsWith('/') ? base : `${base}/`;
 ---
 
 <Layout title="HCI Portfolio | Home">
-    <Hero 
-        title="Human-Computer Interaction" 
-        subtitle="A process portfolio documenting the iterative design journey of our game-based learning platform."
+    <Hero
+        title="Human-Computer Interaction"
+        subtitle="A process portfolio documenting the iterative design journey of Gradventure."
         tag="Course Project 2026"
         primaryAction={{ text: "Explore the Process", href: `${normalizedBase}process/` }}
         secondaryAction={{ text: "View Prototypes", href: `${normalizedBase}prototypes/` }}
@@ -75,7 +75,7 @@ const normalizedBase = base.endsWith('/') ? base : `${base}/`;
             <div>
                 <h2 class="text-3xl font-bold tracking-tighter mb-6 font-display">The Mission</h2>
                 <p class="text-neutral-400 leading-relaxed mb-6">
-                    Our goal is to create an engaging web application that gamifies the study abroad preparation process for students. By combining educational content with game mechanics, we aim to make learning about international education accessible and fun.
+                    <span class="text-white font-semibold">Gradventure</span> is an engaging web application that gamifies the study abroad preparation process for students. By combining educational content with game mechanics, we aim to make learning about international education accessible and fun.
                 </p>
                 <a href={`${normalizedBase}brainstorm/`} class="text-white border-b border-white pb-1 hover:text-brand-accent hover:border-brand-accent transition-colors font-display">Read our Problem Statement →</a>
             </div>
