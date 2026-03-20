@@ -17,16 +17,20 @@ ApplicationWeb/
 │   ├── public/           # Static assets
 │   └── astro.config.mjs  # Astro configuration
 │
-├── src/                  # Main webapp source (to be created)
-├── package.json          # Main project dependencies
-└── README.md             # This file
+├── webapp/               # 测验系统（登录→选题→答题→后续程序）
+│   ├── login.html
+│   ├── select.html
+│   ├── quiz.html
+│   └── ...
+├── package.json
+└── README.md
 ```
 
 ## 🎯 About This Repo
 
 This repository contains:
 1. **Process Portfolio** (`docs/`) - Documenting the iterative design process for HCI course
-2. **Web Application** (to be developed) - Your main course project
+2. **测验系统** (`webapp/`) - 学生登录、选题、答题，成绩≥80分可进入后续程序
 
 ## 🚀 GitHub Pages Setup
 
@@ -36,7 +40,9 @@ The portfolio is built with Astro and deployed via GitHub Actions:
 2. Source: **GitHub Actions** (was "Deploy from a branch")
 3. The `Deploy Astro site to Pages` workflow will automatically build and deploy.
 
-**Live Portfolio**: [https://dcyaprogrammer.github.io/ApplicationWeb/](https://dcyaprogrammer.github.io/ApplicationWeb/)
+**Live Portfolio**: [https://sstgp-sgl.github.io/WebApplication/](https://sstgp-sgl.github.io/WebApplication/)
+
+**测验系统**: [https://sstgp-sgl.github.io/WebApplication/webapp/](https://sstgp-sgl.github.io/WebApplication/webapp/)
 
 ## 📝 Portfolio Documentation
 

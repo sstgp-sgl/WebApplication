@@ -97,7 +97,7 @@ Before you push your changes to GitHub, you should check them locally.
     ```bash
     npm run dev
     ```
-3.  **Open the link** shown in the terminal (usually `http://localhost:4321/ApplicationWeb/`).
+3.  **Open the link** shown in the terminal (usually `http://localhost:4321/WebApplication/`).
 4.  **Edit files**, save, and the browser will update automatically!
 
 ---

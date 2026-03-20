@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测验系统</title>
+  <meta http-equiv="refresh" content="0;url=login.html">
+</head>
+<body>
+  <p style="padding:2rem;text-align:center">正在跳转…</p>
+  <script src="js/auth.js"></script>
+  <script>
+    const user = getCurrentUser();
+    window.location.href = user ? 'select.html' : 'login.html';
+  </script>
+</body>
+</html>

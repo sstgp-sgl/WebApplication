@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>答题 - 测验系统</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="user" id="userInfo"></span>
+    <a href="select.html" class="btn btn-secondary">返回选题</a>
+  </header>
+  <div class="page">
+    <div class="card card-xl">
+      <div class="quiz-header">
+        <span class="quiz-progress" id="progress">第 1 / 20 题</span>
+        <span class="quiz-timer" id="timer">--:--</span>
+      </div>
+      <div id="questionContainer"></div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-secondary" id="prevBtn">上一题</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">下一题</button>
+        <button type="button" class="btn btn-success" id="submitBtn" style="display:none">提交答卷</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    if (!requireAuth()) throw new Error('need login');
+    document.getElementById('userInfo').textContent = getCurrentUser().name;
+
+    const setId = getSetIdFromUrl();
+    const setIdNum = typeof setId === 'string' ? parseInt(setId, 10) : setId;
+    if (!QUESTION_BANK[setIdNum]) {
+      window.location.href = 'select.html';
+      throw new Error('invalid set');
+    }
+
+    let attempt = loadAttempt();
+    if (!attempt || String(attempt.setId) !== String(setId)) {
+      attempt = startQuiz(setId);
+    }
+    if (!attempt) {
+      alert('题目加载失败');
+      window.location.href = 'select.html';
+      throw new Error('failed to start quiz');
+    }
+
+    const questions = attempt.questions;
+    let currentIndex = 0;
+    let startTime = attempt.startTime;
+
+    function formatTime(ms) {
+      const s = Math.floor(ms / 1000);
+      const m = Math.floor(s / 60);
+      return String(m).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+    }
+
+    function updateTimer() {
+      const elapsed = Date.now() - startTime;
+      document.getElementById('timer').textContent = formatTime(elapsed);
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    function render() {
+      const q = questions[currentIndex];
+      const progress = document.getElementById('progress');
+      progress.textContent = '第 ' + (currentIndex + 1) + ' / ' + questions.length + ' 题';
+
+      const container = document.getElementById('questionContainer');
+      container.innerHTML = `
+        <div class="question-block">
+          <h2>${currentIndex + 1}. ${q.q || '(无题目)'}</h2>
+          <div class="options">
+            ${q.options.map((opt, i) => `
+              <label class="option ${q.selected === i ? 'selected' : ''}">
+                <input type="radio" name="q${q.id}" value="${i}" ${q.selected === i ? 'checked' : ''}>
+                <span>${String.fromCharCode(65 + i)}. ${opt || '(空)'}</span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      container.querySelectorAll('.option').forEach((opt, i) => {
+        opt.addEventListener('click', () => {
+          updateAnswer(currentIndex, i);
+          questions[currentIndex].selected = i;
+          render();
+        });
+      });
+
+      document.getElementById('prevBtn').style.display = currentIndex === 0 ? 'none' : 'inline-flex';
+      document.getElementById('nextBtn').style.display = currentIndex === questions.length - 1 ? 'none' : 'inline-flex';
+      document.getElementById('submitBtn').style.display = currentIndex === questions.length - 1 ? 'inline-flex' : 'none';
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        render();
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        render();
+      }
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const unanswered = questions.filter((q) => q.selected === null).length;
+      if (unanswered > 0 && !confirm('还有 ' + unanswered + ' 题未作答，确定提交？')) return;
+      const result = submitQuiz();
+      if (result && result.passed) setPassed(true);
+      window.location.href = 'result.html';
+    });
+
+    render();
+  </script>
+</body>
+</html>

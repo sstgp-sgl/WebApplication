@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 - 测验系统</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <h1>测验系统登录</h1>
+      <p class="subtitle">请输入学号完成登录</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="studentId">学号</label>
+          <input type="text" id="studentId" name="studentId" placeholder="请输入学号" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" placeholder="请输入姓名" required>
+        </div>
+        <button type="submit" class="btn btn-primary">登录</button>
+      </form>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script>
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const studentId = document.getElementById('studentId').value.trim();
+      const name = document.getElementById('name').value.trim();
+      if (!studentId || !name) return;
+      setCurrentUser({ studentId, name });
+      window.location.href = 'select.html';
+    });
+    if (getCurrentUser()) {
+      window.location.href = 'select.html';
+    }
+  </script>
+</body>
+</html>
