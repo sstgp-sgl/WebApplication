@@ -30,6 +30,131 @@ import Section from '../components/Section.astro';
         </div>
     </Section>
 
+    <Section title="User Personas">
+        <p class="text-neutral-400 max-w-3xl mb-8 leading-relaxed">
+            Based on our research and stakeholder consultation, we developed two personas representing typical students preparing for study abroad applications.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Persona 1 -->
+            <div class="bg-bg-dark border border-border-dark p-6 hover:border-brand-accent/50 transition-colors">
+                <!-- Header with Avatar -->
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-16 h-16 bg-bg-darker border border-border-dark flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl text-neutral-500">👩‍🎓</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-xl font-bold text-white">Emily Chen</h3>
+                            <span class="text-xs px-2 py-0.5 bg-brand-accent/20 text-brand-accent font-mono">EARLY EXPLORER</span>
+                        </div>
+                        <p class="text-neutral-500 font-mono text-sm">Age: 18 | Year 1 Undergraduate</p>
+                    </div>
+                </div>
+
+                <!-- Background -->
+                <div class="mb-6 pb-4 border-b border-border-dark">
+                    <span class="text-neutral-500 font-mono text-xs">BACKGROUND</span>
+                    <p class="text-neutral-400 text-sm mt-2 leading-relaxed">
+                        Emily has just entered university. She has limited knowledge of application requirements and feels overwhelmed by unfamiliar terms such as GPA requirements, language tests, and personal statements.
+                    </p>
+                </div>
+
+                <!-- Goals -->
+                <div class="mb-4">
+                    <span class="text-brand-accent font-mono text-xs font-semibold">GOALS</span>
+                    <ul class="text-neutral-400 text-sm mt-2 space-y-1">
+                        <li>• Understand the overall postgraduate application process</li>
+                        <li>• Learn basic requirements (GPA, IELTS, internships, research)</li>
+                        <li>• Explore different countries and study options</li>
+                        <li>• Reduce uncertainty about long-term planning</li>
+                    </ul>
+                </div>
+
+                <!-- Pain Points -->
+                <div class="mb-4">
+                    <span class="text-brand-accent font-mono text-xs font-semibold">PAIN POINTS</span>
+                    <ul class="text-neutral-400 text-sm mt-2 space-y-1">
+                        <li>• Information online is fragmented and difficult to understand</li>
+                        <li>• Cannot judge what preparation should start now</li>
+                        <li>• Feels anxious due to lack of clear guidance</li>
+                        <li>• Unsure how current choices affect future applications</li>
+                    </ul>
+                </div>
+
+                <!-- Needs -->
+                <div>
+                    <span class="text-brand-accent font-mono text-xs font-semibold">NEEDS FROM SYSTEM</span>
+                    <ul class="text-neutral-400 text-sm mt-2 space-y-1">
+                        <li>• Beginner-friendly explanations</li>
+                        <li>• Step-by-step guidance with clear structure</li>
+                        <li>• Gamified learning to maintain motivation</li>
+                        <li>• Visual progress tracking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Persona 2 -->
+            <div class="bg-bg-dark border border-border-dark p-6 hover:border-brand-accent/50 transition-colors">
+                <!-- Header with Avatar -->
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-16 h-16 bg-bg-darker border border-border-dark flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl text-neutral-500">👨‍💻</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-xl font-bold text-white">Jason Li</h3>
+                            <span class="text-xs px-2 py-0.5 bg-brand-accent/20 text-brand-accent font-mono">STRATEGIC PLANNER</span>
+                        </div>
+                        <p class="text-neutral-500 font-mono text-sm">Age: 21 | Year 3 Undergraduate</p>
+                        <p class="text-neutral-600 font-mono text-xs mt-1">Information and Computing Science</p>
+                    </div>
+                </div>
+
+                <!-- Background -->
+                <div class="mb-6 pb-4 border-b border-border-dark">
+                    <span class="text-neutral-500 font-mono text-xs">BACKGROUND</span>
+                    <p class="text-neutral-400 text-sm mt-2 leading-relaxed">
+                        Jason has already decided to apply for overseas postgraduate programmes. He understands his GPA, IELTS target, internship experience, and project background, and now wants to evaluate suitable universities and assess admission competitiveness.
+                    </p>
+                </div>
+
+                <!-- Goals -->
+                <div class="mb-4">
+                    <span class="text-brand-accent font-mono text-xs font-semibold">GOALS</span>
+                    <ul class="text-neutral-400 text-sm mt-2 space-y-1">
+                        <li>• Identify universities matching his academic profile</li>
+                        <li>• Evaluate admission probability</li>
+                        <li>• Compare programmes efficiently</li>
+                        <li>• Plan remaining improvements before deadlines</li>
+                    </ul>
+                </div>
+
+                <!-- Pain Points -->
+                <div class="mb-4">
+                    <span class="text-brand-accent font-mono text-xs font-semibold">PAIN POINTS</span>
+                    <ul class="text-neutral-400 text-sm mt-2 space-y-1">
+                        <li>• Difficulty matching profile with universities objectively</li>
+                        <li>• Too many ranking lists with inconsistent standards</li>
+                        <li>• Unsure whether he is competitive enough</li>
+                        <li>• Hard to visualize strengths and weaknesses</li>
+                    </ul>
+                </div>
+
+                <!-- Needs -->
+                <div>
+                    <span class="text-brand-accent font-mono text-xs font-semibold">NEEDS FROM SYSTEM</span>
+                    <ul class="text-neutral-400 text-sm mt-2 space-y-1">
+                        <li>• Profile-based university matching</li>
+                        <li>• Clear visual feedback on competitiveness</li>
+                        <li>• Personalized recommendations</li>
+                        <li>• Progress-based gamified milestones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </Section>
+
     <Section title="Ideation" class="bg-neutral-900/20 border-t border-b border-neutral-800">
         <!-- Visual Materials -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
