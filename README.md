@@ -42,7 +42,7 @@ The portfolio is built with Astro and deployed via GitHub Actions:
 
 **Live Portfolio**: [https://sstgp-sgl.github.io/WebApplication/](https://sstgp-sgl.github.io/WebApplication/)
 
-**测验系统**: [https://sstgp-sgl.github.io/WebApplication/webapp/](https://sstgp-sgl.github.io/WebApplication/webapp/)
+**测验系统**（2 套题库：中介与合同、雅思/托福）: [https://sstgp-sgl.github.io/WebApplication/webapp/](https://sstgp-sgl.github.io/WebApplication/webapp/)
 
 ## 📝 Portfolio Documentation
 
