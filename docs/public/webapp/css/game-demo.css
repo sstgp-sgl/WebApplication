@@ -1,0 +1,293 @@
+/* Gradventure card demo — Reigns-inspired */
+
+.game-demo {
+  --card-h: min(72vh, 520px);
+  --meter-h: 6px;
+  background: linear-gradient(165deg, #0f172a 0%, #1e293b 45%, #334155 100%);
+  min-height: 100vh;
+  color: #f8fafc;
+  font-family: var(--font, 'Inter', system-ui, sans-serif);
+}
+
+.game-demo .gd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.game-demo .gd-tokens {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.gd-meters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  padding: 0.75rem 1rem 0.5rem;
+}
+
+.gd-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gd-meter span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gd-meter-bar {
+  height: var(--meter-h);
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.gd-meter-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.35s ease, background 0.2s;
+  background: linear-gradient(90deg, #34d399, #22d3ee);
+}
+
+.gd-meter.low .gd-meter-fill {
+  background: linear-gradient(90deg, #f87171, #fb923c);
+}
+
+.gd-meter.high .gd-meter-fill {
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+}
+
+.gd-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  touch-action: none;
+}
+
+.gd-card-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: var(--card-h);
+  perspective: 800px;
+}
+
+.gd-card {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+  color: #0f172a;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.05s linear;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.gd-card:active {
+  cursor: grabbing;
+}
+
+.gd-card.gd-swiping {
+  transition: none;
+}
+
+.gd-card-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.06em;
+}
+
+.gd-card-text {
+  font-size: 1.15rem;
+  line-height: 1.45;
+  font-weight: 600;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.gd-card-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.gd-choice {
+  padding: 0.65rem 0.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  line-height: 1.3;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+
+.gd-choice-left {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.gd-choice-right {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.gd-hint {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.gd-swipe-hint {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.gd-screen {
+  display: none;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.gd-screen.is-active {
+  display: flex;
+}
+
+.gd-start-inner,
+.gd-end-inner,
+.gd-shop-inner {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.gd-start-inner h1,
+.gd-end-inner h1,
+.gd-shop-inner h1 {
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.gd-start-inner p,
+.gd-end-inner p,
+.gd-shop-inner p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.55;
+}
+
+.gd-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.gd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.gd-btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #fff;
+}
+
+.gd-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gd-btn:active {
+  transform: scale(0.98);
+}
+
+.gd-outcome-tag {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  background: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+  margin-bottom: 1rem;
+}
+
+.gd-shop-list {
+  list-style: none;
+  margin: 1rem 0 0;
+}
+
+.gd-shop-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.gd-shop-item.unlocked {
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.gd-shop-item.locked {
+  opacity: 0.75;
+}
+
+.gd-back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.gd-back:hover {
+  color: #e2e8f0;
+}

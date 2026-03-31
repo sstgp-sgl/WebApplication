@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Gradventure Demo — 大一抉择</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/game-demo.css">
+</head>
+<body class="game-demo">
+  <!-- 开始 -->
+  <section id="screen-start" class="gd-screen is-active">
+    <div class="gd-start-inner">
+      <h1>Gradventure Demo</h1>
+      <p>你是一名<strong>大一新生</strong>。通过 8 次抉择推进状态条，最终得到一种<strong>毕业结局</strong>。无分数及格线；可左右滑卡片，或点选下方选项。</p>
+      <p style="font-size:0.85rem;color:#64748b">本页为独立 Demo，数据保存在本机浏览器。通关可获得成长点数，用于商店解锁导师推荐占位内容。</p>
+      <div class="gd-btn-row">
+        <button type="button" class="gd-btn gd-btn-primary" id="gdBtnStart">开始一局</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 游玩 -->
+  <section id="screen-play" class="gd-screen">
+    <header class="gd-header">
+      <span>Gradventure</span>
+      <span class="gd-tokens">成长点数 <span id="gdHeaderTokens">0</span></span>
+    </header>
+    <div class="gd-meters">
+      <div class="gd-meter" data-key="lang">
+        <span>语言</span>
+        <div class="gd-meter-bar"><div class="gd-meter-fill" style="width:50%"></div></div>
+      </div>
+      <div class="gd-meter" data-key="app">
+        <span>申请认知</span>
+        <div class="gd-meter-bar"><div class="gd-meter-fill" style="width:50%"></div></div>
+      </div>
+      <div class="gd-meter" data-key="plan">
+        <span>时间规划</span>
+        <div class="gd-meter-bar"><div class="gd-meter-fill" style="width:50%"></div></div>
+      </div>
+      <div class="gd-meter" data-key="sup">
+        <span>支持网络</span>
+        <div class="gd-meter-bar"><div class="gd-meter-fill" style="width:50%"></div></div>
+      </div>
+    </div>
+    <div class="gd-stage">
+      <div id="gdCardWrap" class="gd-card-wrap"></div>
+      <p class="gd-swipe-hint">桌面端可拖拽卡片模拟左右滑</p>
+    </div>
+  </section>
+
+  <!-- 结局 -->
+  <section id="screen-end" class="gd-screen">
+    <div class="gd-end-inner">
+      <p class="gd-outcome-tag" id="gdOutcomeTag">结局</p>
+      <h1 id="gdOutcomeTitle">—</h1>
+      <p id="gdOutcomeBody">—</p>
+      <p id="gdTokenMsg" style="color:#cbd5e1;font-size:0.9rem">—</p>
+      <div class="gd-btn-row" style="margin-top:1.5rem">
+        <button type="button" class="gd-btn gd-btn-primary" id="gdBtnAgain">再玩一局</button>
+        <button type="button" class="gd-btn gd-btn-secondary" id="gdBtnShop">进入商店</button>
+      </div>
+      <p style="margin-top:1.5rem;font-size:0.8rem;color:#64748b">
+        <button type="button" class="gd-back" id="gdBackToStart">← 返回标题</button>
+      </p>
+    </div>
+  </section>
+
+  <!-- 商店 -->
+  <section id="screen-shop" class="gd-screen">
+    <div class="gd-shop-inner">
+      <button type="button" class="gd-back" id="gdBackFromShop">← 返回结局</button>
+      <h1>商店（占位）</h1>
+      <p>当前成长点数：<strong id="gdShopTokens" style="color:#fbbf24">0</strong> · 解锁「导师推荐」完整列表需 <strong>20</strong> 点（Demo）</p>
+      <ul class="gd-shop-list">
+        <li class="gd-shop-item unlocked" id="gdShopRowEnter">
+          <span>商店入口（通关任意一局）</span>
+          <span class="gd-shop-status">已解锁</span>
+        </li>
+        <li class="gd-shop-item locked" id="gdShopRowFull">
+          <span>导师推荐 · 完整列表</span>
+          <span class="gd-shop-status">未解锁 · 20 点</span>
+        </li>
+      </ul>
+      <p id="gdMentorPreview" style="color:#94a3b8;font-size:0.9rem;margin:1rem 0">—</p>
+      <button type="button" class="gd-btn gd-btn-primary" id="gdBtnUnlockFull">花费 20 点解锁</button>
+    </div>
+  </section>
+
+  <script src="js/game-demo.js"></script>
+</body>
+</html>
