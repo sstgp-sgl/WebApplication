@@ -1,26 +1,29 @@
-# 测验系统 - 前端
+# Gradventure 前端（`webapp/`）
 
-学生登录 → 选题（2 套，对应升学内容两大板块）→ 答题（20 道单选）→ 成绩 ≥80 分可进入后续程序。
+游戏化留学准备：**大一抉择卡牌** → **结局** → **商店** 用成长点数解锁后续内容（如导师 / supervisor 推荐筛选，开发中）。
 
-## 访问方式
+## 流程
 
-- **本地**：`python3 -m http.server 8000 --directory webapp`，访问 <http://localhost:8000>
-- **GitHub Pages**：若部署到 `webapp/`，则 `https://sstgp-sgl.github.io/WebApplication/webapp/`
+1. **`index.html`** → 跳转 **`game-demo.html`**
+2. 玩家完成多轮抉择（Reigns 式左右滑 / 按钮），四条状态条变化，得到一种毕业结局
+3. 通关获得 **成长点数**；首次达成某结局有额外点数
+4. **商店**：消耗点数解锁「导师推荐完整列表」等占位；后续可替换为 **supervisor 推荐筛选** 等真实功能
 
-## 页面说明
+无旧版「登录 → 选题 → 计分测验」流程；数据暂存浏览器 `localStorage`（键名含 `gradventure_demo_`）。
 
-| 页面 | 路径 | 说明 |
-|------|------|------|
-| 首页 | index.html | 重定向到登录或选题 |
-| 登录 | login.html | 学号 + 姓名登录 |
-| 选题 | select.html | 选择题目套（中介与合同 / 雅思托福） |
-| 答题 | quiz.html?set=1 | 20 道单选题 |
-| 结果 | result.html | 通过/未通过，可重考 |
-| 锁定 | locked.html | 未通过时访问 app 的提示 |
-| 后续程序 | app.html | 通过后进入的占位页 |
+## 文件
 
-## 技术说明
+| 文件 | 说明 |
+|------|------|
+| `game-demo.html` | 单页：标题 / 游玩 / 结局 / 商店 |
+| `js/game-demo.js` | 卡牌、状态、结局、点数与商店逻辑 |
+| `css/game-demo.css` | 深色 UI、计量条、卡面 |
+| `css/styles.css` | 基础样式（与 game-demo 共用） |
+| `index.html` | 入口，跳转游戏 |
 
-- 纯前端，登录与成绩存于 `localStorage`
-- 题库在 `js/data.js`，2 套各 25 题，随机抽 20 题
-- 通过标准：20 题全对 100 分，≥80 分通过
+## 线上预览
+
+部署到 GitHub Pages 后，例如：
+
+`https://<user>.github.io/<repo>/webapp/`  
+`https://<user>.github.io/<repo>/webapp/game-demo.html`

@@ -355,7 +355,7 @@ function openShop() {
 
   document.getElementById('gdBtnUnlockFull').style.display = full ? 'none' : 'inline-flex';
   document.getElementById('gdMentorPreview').textContent = full
-    ? '（Demo）此处将接入导师推荐列表与 SURF 项目数据。'
+    ? '（Demo）此处将接入 supervisor 推荐筛选与项目数据。'
     : '完整内容需解锁后显示。';
 
   showScreen('screen-shop');

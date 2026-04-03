@@ -13,7 +13,7 @@
     <div class="gd-start-inner">
       <h1>Gradventure Demo</h1>
       <p>你是一名<strong>大一新生</strong>。通过 8 次抉择推进状态条，最终得到一种<strong>毕业结局</strong>。无分数及格线；可左右滑卡片，或点选下方选项。</p>
-      <p style="font-size:0.85rem;color:#64748b">本页为独立 Demo，数据保存在本机浏览器。通关可获得成长点数，用于商店解锁导师推荐占位内容。</p>
+      <p style="font-size:0.85rem;color:#64748b">数据保存在本机浏览器。通关获得成长点数，可在商店解锁后续奖励（如 supervisor 推荐筛选，开发中）。</p>
       <div class="gd-btn-row">
         <button type="button" class="gd-btn gd-btn-primary" id="gdBtnStart">开始一局</button>
       </div>
@@ -72,14 +72,14 @@
     <div class="gd-shop-inner">
       <button type="button" class="gd-back" id="gdBackFromShop">← 返回结局</button>
       <h1>商店（占位）</h1>
-      <p>当前成长点数：<strong id="gdShopTokens" style="color:#fbbf24">0</strong> · 解锁「导师推荐」完整列表需 <strong>20</strong> 点（Demo）</p>
+      <p>当前成长点数：<strong id="gdShopTokens" style="color:#fbbf24">0</strong> · 解锁「Supervisor 推荐筛选」完整功能需 <strong>20</strong> 点（Demo）</p>
       <ul class="gd-shop-list">
         <li class="gd-shop-item unlocked" id="gdShopRowEnter">
           <span>商店入口（通关任意一局）</span>
           <span class="gd-shop-status">已解锁</span>
         </li>
         <li class="gd-shop-item locked" id="gdShopRowFull">
-          <span>导师推荐 · 完整列表</span>
+          <span>Supervisor 推荐 · 筛选与列表</span>
           <span class="gd-shop-status">未解锁 · 20 点</span>
         </li>
       </ul>
